@@ -17,6 +17,18 @@ class Pet(Base):
 	age = Column(Integer, nullable=False)
 	price = Column(Integer, nullable=False)
 
+	def discount(self):
+		if self.age >= (self.lifespan/2):
+			self.price = self.price*0.75
+			return self.price
+
+	def check_discount(self):
+		if self.discount():
+			return True
+		else:
+			return False
+
+
 class Item(Base):
 	__tablename__ = 'item'
 

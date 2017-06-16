@@ -10,12 +10,12 @@ DBSession = sessionmaker(bind=engine)
 session = DBSession()
 
 def pet_columns():
-	print("ID\tType\tSub Type\tColor\tSpan\tAge\tPrice")
+	print("ID\tType\tSub Type\tColor\tSpan\tAge\tPrice\tDiscount?")
 
 def pet_vals(pet):
 	print(str(pet.id) + "\t" + pet.pet_type + "\t" + pet.pet_sub_type + "\t"
 			+ pet.color + "\t" + str(pet.lifespan) + "\t" + str(pet.age) + "\t" +
-			str(pet.price))
+			str(pet.price) + "\t" + str(pet.check_discount()))
 
 def item_columns():
 	print("ID\tType\tPrice")
@@ -104,5 +104,15 @@ def filter_items_by_price(price):
 	for item in items:
 		item_vals(item)
 	return
+
+'''def discounted():
+	pets = session.query(Pet).all()
+	for pet in pets:
+		if pet.age >= (pet.lifespan/2):
+			new_price = pet.price*0.75
+			print(str(pet.id) + "\t" + pet.pet_type + "\t" + pet.pet_sub_type + "\t"
+			+ pet.color + "\t" + str(pet.lifespan) + "\t" + str(pet.age) + "\t" +
+			str(pet.new_price))'''
+
 
 
