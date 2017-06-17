@@ -1,6 +1,7 @@
 import models
 import test
 import main
+import operator
 
 '''Enter values for filters.
 i.e. If you want to see dogs for pet type,

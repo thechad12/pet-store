@@ -26,7 +26,7 @@ def item_vals(item):
 
 def check_vals(user_input, input_type):
 	if type(user_input) != input_type:
-		raise ValueError("We're sorry, we could not read that, please try again")
+		raise ValueError("We're sorry, we could not read that. Please enter %s" % input_type)
 
 def empty_query(thing):
 	if thing.count() == 0:
